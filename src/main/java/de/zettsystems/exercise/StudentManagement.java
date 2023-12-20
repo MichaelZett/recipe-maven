@@ -40,7 +40,7 @@ public class StudentManagement {
     private static List<Student> getAllFemales(List<Student> x) {
         List<Student> collect = x.stream()
                 .peek(System.out::println)
-                .filter(s -> s.getAge() >= 18)
+                .filter(s -> s.getGender() == Gender.FEMALE)
                 .collect(Collectors.toList());
         return collect;
     }
@@ -105,6 +105,14 @@ class Undergraduate implements Student {
         return gender;
     }
 
+    @Override
+    public String toString() {
+        return "Undergraduate{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", gender=" + gender +
+                '}';
+    }
 }
 
 class Graduate implements Student {
@@ -139,6 +147,16 @@ class Graduate implements Student {
 
     public String getFavouriteBeer() {
         return favouriteBeer;
+    }
+
+    @Override
+    public String toString() {
+        return "Graduate{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", gender=" + gender +
+                ", favouriteBeer='" + favouriteBeer + '\'' +
+                '}';
     }
 }
 
